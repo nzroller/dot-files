@@ -1,0 +1,9 @@
+---
+- hosts: ubuntu
+  sudo: true
+  roles:
+    - java_install
+  tasks:
+    - include: tasks/vagrant.yml tags=vagrant
+    - include: tasks/mvn.yml tags=maven
+    - include: tasks/packer.yml tags=packer

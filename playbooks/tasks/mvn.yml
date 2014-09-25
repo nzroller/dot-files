@@ -1,0 +1,40 @@
+---
+# Fail the play if it runs on an unsupported platform.
+- name: Maven | Assert platform is supported
+  assert:
+    that:
+      - ansible_os_family in ['Debian']
+
+- name: Maven | Download Maven (local)
+  sudo: no
+  local_action: get_url
+    dest=/tmp/apache-maven-3.2.3-bin.tar.gz
+    url=https://www.apache.org/dist/maven/maven-3/3.2.3/binaries/apache-maven-3.2.3-bin.tar.gz
+    sha256sum='bf3f04aadee3a67158aebdfb0b4cb022063329d459d10fd6b4b02223e10aa8ed'
+
+- name: Maven | Install Maven
+  unarchive:
+    src=/tmp/apache-maven-3.2.3-bin.tar.gz
+    dest=/opt/
+
+- name: Maven | Create alternatives link
+  alternatives:
+    name=mvn
+    link=/usr/bin/mvn
+    path=/opt/apache-maven-3.2.3/bin/mvn
+
+- name: Maven | Select alternative
+  alternatives:
+    name=mvn
+    path=/opt/apache-maven-3.2.3/bin/mvn
+
+- name: Maven | Download auto-completion (local)
+  sudo: no
+  local_action: get_url
+    dest=/tmp/maven_3.2.3_bash_completion.bash
+    url=https://raw.github.com/juven/maven-bash-completion/master/bash_completion.bash
+
+- name: Maven | Install bash completion
+  copy:
+    src=/tmp/maven_3.2.3_bash_completion.bash
+    dest=/etc/bash_completion.d/mvn
