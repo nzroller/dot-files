@@ -20,7 +20,6 @@
     src=/tmp/packer_0.7.1_linux_amd64.zip
     dest=/usr/local/bin
 
-
 - name: Get Packer completion
   get_url:
     url=https://raw.githubusercontent.com/mrolli/packer-bash-completion/master/packer

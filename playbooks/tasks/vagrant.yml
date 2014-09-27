@@ -1,23 +1,4 @@
 ---
-- name: Add Virtualbox repo key
-  apt_key: url="http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc"
-  sudo: true
-
-- name: Add Virtualbox repo
-  apt_repository:
-    repo='deb http://download.virtualbox.org/virtualbox/debian {{ ansible_distribution_release }} contrib'
-  sudo: true
-
-- name: Install Virtualbox
-  apt:
-    pkg={{ item }}
-    update_cache=yes
-    state=latest
-    cache_valid_time=3600
-  with_items:
-    - virtualbox-4.3
-  sudo: true
-
 #- name: Get Vagrant checksums
 #  get_url:
 #    url=https://dl.bintray.com/mitchellh/vagrant/1.6.5_SHA256SUMS?direct
