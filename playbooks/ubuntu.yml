@@ -2,7 +2,12 @@
 - hosts: ubuntu
   sudo: true
   roles:
-    - java_install
+    - {
+    role: java_install,
+    oracle_jdk_java_version_default: 7,
+    oracle_jdk_java_versions: [7,8],
+    tags: java
+    }
   tasks:
     - include: tasks/virtualbox.yml tags=virtualbox
     - include: tasks/vagrant.yml tags=vagrant
