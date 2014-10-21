@@ -1,23 +1,23 @@
 ---
-#- name: Get Packer checksums
-#  get_url:
-#    url=https://dl.bintray.com/mitchellh/packer/packer_0.7.1_SHA256SUMS?direct
-#    dest=/tmp/packer_0.7.1_SHA256SUMS
+- name: Get Packer checksums
+  get_url:
+    url=https://dl.bintray.com/mitchellh/packer/packer_{{ packer_version }}_SHA256SUMS?direct
+    dest=/tmp/packer_{{ packer_version }}_SHA256SUMS
 
-#- name: Register Packer linux_amd64 checksum
-#  shell: sed -n -e 's/  *packer_0.7.1_linux_amd64.zip.*$//p' /tmp/packer_0.7.1_SHA256SUMS
-#  register: packersha256sum
+- name: Register Packer linux_amd64 checksum
+  shell: sed -n -e 's/  *packer_{{ packer_version }}_linux_amd64.zip.*$//p' /tmp/packer_{{ packer_version }}_SHA256SUMS
+  register: packersha256sum
 
 - name: Get Packer
   get_url:
-    url=https://dl.bintray.com/mitchellh/packer/packer_0.7.1_linux_amd64.zip
-    dest=/tmp/packer_0.7.1_linux_amd64.zip
-    sha256sum=4f7b8cd96a147f9473cc724397613c8d98bbf0d8cb037b122785ff252eb12581
+    url=https://dl.bintray.com/mitchellh/packer/packer_{{ packer_version }}_linux_amd64.zip
+    dest=/tmp/packer_{{ packer_version }}_linux_amd64.zip
+    sha256sum={{ packersha256sum.stdout }}
 
 - name: Install Packer
   sudo: yes
   unarchive:
-    src=/tmp/packer_0.7.1_linux_amd64.zip
+    src=/tmp/packer_{{ packer_version }}_linux_amd64.zip
     dest=/usr/local/bin
 
 - name: Get Packer completion

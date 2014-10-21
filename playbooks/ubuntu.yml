@@ -8,9 +8,11 @@
     oracle_jdk_java_versions: [7,8],
     tags: java
     }
+
   tasks:
-    - include: tasks/virtualbox.yml tags=virtualbox
-    - include: tasks/vagrant.yml tags=vagrant
-    - include: tasks/mvn.yml tags=maven
-    - include: tasks/packer.yml tags=packer
-    - include: tasks/consul.yml tags=consul
+    - { include: tasks/virtualbox.yml, virtualbox_version: 4.3, tags: virtualbox }
+    - { include: tasks/vagrant.yml, vagrant_version: 1.6.5, tags: vagrant }
+    - { include: tasks/maven.yml, maven_version: 3.2.3, tags: maven }
+    - { include: tasks/packer.yml, packer_version: 0.7.1, tags: packer }
+    - { include: tasks/consul.yml, consul_version: 0.4.0, tags: consul }
+    - { include: tasks/docker.yml, tags: docker }

@@ -10,10 +10,8 @@
 
 - name: Install Virtualbox
   apt:
-    pkg={{ item }}
+    pkg="virtualbox-{{ virtualbox_version }}"
     update_cache=yes
     state=latest
     cache_valid_time=3600
-  with_items:
-    - virtualbox-4.3
   sudo: true

@@ -1,32 +1,32 @@
 ---
-#- name: Get Vagrant checksums
-#  get_url:
-#    url=https://dl.bintray.com/mitchellh/vagrant/1.6.5_SHA256SUMS?direct
-#    dest=/tmp/1.6.5_SHA256SUMS
+- name: Get Vagrant checksums
+  get_url:
+    url=https://dl.bintray.com/mitchellh/vagrant/{{ vagrant_version }}_SHA256SUMS?direct
+    dest=/tmp/{{ vagrant_version }}_SHA256SUMS
 
-#- name: Register Vagrant x86_64 checksum
-#  shell: sed -n -e 's/  *vagrant_1.6.5_x86_64.deb.*$//p' /tmp/1.6.5_SHA256SUMS
-#  register: vagrantsha256sum
+- name: Register Vagrant x86_64 checksum
+  shell: sed -n -e 's/  *vagrant_{{ vagrant_version }}_x86_64.deb.*$//p' /tmp/{{ vagrant_version }}_SHA256SUMS
+  register: vagrantsha256sum
 
 - name: Get Vagrant
   get_url:
-    url=https://dl.bintray.com/mitchellh/vagrant/vagrant_1.6.5_x86_64.deb
-    dest=/tmp/vagrant_1.6.5_x86_64.deb
-    sha256sum=e2c7af6d032ac551ebd6399265cb9cb64402c9fb96a12289161b7f67afada28a
+    url=https://dl.bintray.com/mitchellh/vagrant/vagrant_{{ vagrant_version }}_x86_64.deb
+    dest=/tmp/vagrant_{{ vagrant_version }}_x86_64.deb
+    sha256sum={{ vagrantsha256sum.stdout }}
 
 - name: Install Vagrant
   sudo: yes
   apt:
-    deb=/tmp/vagrant_1.6.5_x86_64.deb
+    deb=/tmp/vagrant_{{ vagrant_version }}_x86_64.deb
     state=installed
     cache_valid_time=3600
 
 - name: Get Vagrant completion
   get_url:
-    url=https://raw.githubusercontent.com/mitchellh/vagrant/v1.6.5/contrib/bash/completion.sh
-    dest=/tmp/vagrant_1.6.5_completion.sh
+    url=https://raw.githubusercontent.com/mitchellh/vagrant/v{{ vagrant_version }}/contrib/bash/completion.sh
+    dest=/tmp/vagrant_{{ vagrant_version }}_completion.sh
 
 - name: Install Vagrant completion
   copy:
-    src=/tmp/vagrant_1.6.5_completion.sh
+    src=/tmp/vagrant_{{ vagrant_version }}_completion.sh
     dest=/etc/bash_completion.d/vagrant

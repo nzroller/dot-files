@@ -1,0 +1,11 @@
+---
+- name: Add Docker repository key
+  apt_key: url="hkp:/keyserver.ubuntu.com" id="A88D21E9"
+
+- name: Add Docker repository
+  apt_repository:
+    repo: 'deb http://get.docker.io/ubuntu docker main'
+    update_cache: yes
+
+- name: Install Docker
+  apt: pkg=lxc-docker state=latest

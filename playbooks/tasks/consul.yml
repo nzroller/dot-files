@@ -1,24 +1,23 @@
 ---
 - name: Get Consul checksums
   get_url:
-    url=https://dl.bintray.com/mitchellh/consul/0.4.0_SHA256SUMS?direct
-    dest=/tmp/consul_0.4.0_SHA256SUMS
+    url=https://dl.bintray.com/mitchellh/consul/{{ consul_version }}_SHA256SUMS?direct
+    dest=/tmp/consul_{{ consul_version }}_SHA256SUMS
 
 - name: Register Consul linux_amd64 checksum
-  shell: sed -n -e 's/  *0.4.0_linux_amd64.zip.*$//p' /tmp/consul_0.4.0_SHA256SUMS
+  shell: sed -n -e 's/  *{{ consul_version }}_linux_amd64.zip.*$//p' /tmp/consul_{{ consul_version }}_SHA256SUMS
   register: consulsha256sum
 
 - name: Get Consul
   get_url:
-    url=https://dl.bintray.com/mitchellh/consul/0.4.0_linux_amd64.zip
-    dest=/tmp/consul_0.4.0_linux_amd64.zip
+    url=https://dl.bintray.com/mitchellh/consul/{{ consul_version }}_linux_amd64.zip
+    dest=/tmp/consul_{{ consul_version }}_linux_amd64.zip
     sha256sum={{ consulsha256sum.stdout }}
-#    sha256sum=4f7b8cd96a147f9473cc724397613c8d98bbf0d8cb037b122785ff252eb12581
 
 - name: Install Consul
   sudo: yes
   unarchive:
-    src=/tmp/consul_0.4.0_linux_amd64.zip
+    src=/tmp/consul_{{ consul_version }}_linux_amd64.zip
     dest=/usr/local/bin
 
 - name: Get Consul completion
