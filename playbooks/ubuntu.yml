@@ -14,5 +14,5 @@
     - { include: tasks/vagrant.yml, vagrant_version: 1.6.5, tags: vagrant }
     - { include: tasks/maven.yml, maven_version: 3.2.3, tags: maven }
     - { include: tasks/packer.yml, packer_version: 0.7.1, tags: packer }
-    - { include: tasks/consul.yml, consul_version: 0.4.0, tags: consul }
+    - { include: tasks/consul.yml, consul_version: 0.4.1, tags: consul }
     - { include: tasks/docker.yml, tags: docker }
