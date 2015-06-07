@@ -11,8 +11,9 @@
 
   tasks:
     - { include: tasks/virtualbox.yml, virtualbox_version: 4.3, tags: virtualbox }
-    - { include: tasks/vagrant.yml, vagrant_version: 1.6.5, tags: vagrant }
-    - { include: tasks/maven.yml, maven_version: 3.2.3, tags: maven }
-    - { include: tasks/packer.yml, packer_version: 0.7.1, tags: packer }
-    - { include: tasks/consul.yml, consul_version: 0.4.1, tags: consul }
+    - { include: tasks/vagrant.yml, vagrant_version: 1.7.2, tags: vagrant }
+    - { include: tasks/maven.yml, maven_version: 3.3.3, tags: maven }
+    - { include: tasks/packer.yml, packer_version: 0.7.5, tags: packer }
+    - { include: tasks/consul.yml, consul_version: 0.5.2, tags: consul }
+    - { include: tasks/hub.yml, hub_version: 2.2.1, tags: hub }
     - { include: tasks/docker.yml, tags: docker }
