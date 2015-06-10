@@ -1,6 +1,6 @@
 ---
 - name: Add Docker repository key
-  apt_key: url="hkp:/keyserver.ubuntu.com" id="A88D21E9"
+  apt_key: keyserver=keyserver.ubuntu.com id=A88D21E9
 
 - name: Add Docker repository
   apt_repository:
