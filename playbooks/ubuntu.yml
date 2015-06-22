@@ -4,7 +4,7 @@
   roles:
     - {
     role: java_install,
-    oracle_jdk_java_version_default: 7,
+    oracle_jdk_java_version_default: 8,
     oracle_jdk_java_versions: [7,8],
     tags: java
     }
@@ -17,3 +17,4 @@
     - { include: tasks/consul.yml, consul_version: 0.5.2, tags: consul }
     - { include: tasks/hub.yml, hub_version: 2.2.1, tags: hub }
     - { include: tasks/docker.yml, tags: docker }
+    - { include: tasks/terraform.yml, terraform_version: 0.5.3, tags: terraform }

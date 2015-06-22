@@ -1,0 +1,31 @@
+---
+- name: Get Terraform checksums
+  get_url:
+    url=https://dl.bintray.com/mitchellh/terraform/terraform_{{ terraform_version }}_SHA256SUMS?direct
+    dest=/tmp/terraform_{{ terraform_version }}_SHA256SUMS
+
+- name: Register Terraform linux_amd64 checksum
+  shell: sed -n -e 's/  *{{ terraform_version }}_linux_amd64.zip.*$//p' /tmp/terraform_{{ terraform_version }}_SHA256SUMS
+  register: terraformsha256sum
+
+- name: Get Terraform
+  get_url:
+    url=https://dl.bintray.com/mitchellh/terraform/terraform_{{ terraform_version }}_linux_amd64.zip
+    dest=/tmp/terraform_{{ terraform_version }}_linux_amd64.zip
+    sha256sum={{ terraformsha256sum.stdout }}
+
+- name: Install Terraform
+  sudo: yes
+  unarchive:
+    src=/tmp/terraform_{{ terraform_version }}_linux_amd64.zip
+    dest=/usr/local/bin
+
+#- name: Get Terraform completion
+#  get_url:
+#    url=https://raw.githubusercontent.com/nzroller/terraform-bash-completion/master/terraform
+#    dest=/tmp/terraform_completion.sh
+
+#- name: Install Terraform completion
+#  copy:
+#    src=/tmp/terraform_completion.sh
+#    dest=/etc/bash_completion.d/terraform
