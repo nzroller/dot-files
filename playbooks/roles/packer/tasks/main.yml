@@ -15,7 +15,7 @@
     sha256sum={{ packersha256sum.stdout }}
 
 - name: Install Packer
-  sudo: yes
+  become: yes
   unarchive:
     src=/tmp/packer_{{ packer_version }}_linux_amd64.zip
     dest=/usr/local/bin

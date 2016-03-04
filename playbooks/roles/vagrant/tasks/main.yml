@@ -15,7 +15,7 @@
     sha256sum={{ vagrantsha256sum.stdout }}
 
 - name: Install Vagrant
-  sudo: yes
+  become: yes
   apt:
     deb=/tmp/vagrant_{{ vagrant_version }}_x86_64.deb
     state=installed

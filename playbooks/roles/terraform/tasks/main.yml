@@ -1,7 +1,7 @@
 ---
 - name: Get Terraform checksums
   get_url:
-    url=https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_SHA256SUMS
+    url=https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_SHA256SUMS.sig
     dest=/tmp/terraform_{{ terraform_version }}_SHA256SUMS
 
 - name: Register Terraform linux_amd64 checksum
@@ -15,7 +15,7 @@
     sha256sum={{ terraformsha256sum.stdout }}
 
 - name: Install Terraform
-  sudo: yes
+  become: yes
   unarchive:
     src=/tmp/terraform_{{ terraform_version }}_linux_amd64.zip
     dest=/usr/local/bin

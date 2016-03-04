@@ -1,12 +1,12 @@
 ---
 - hosts: ubuntu
-  sudo: true
-  tasks:
-    - { include: tasks/virtualbox.yml, virtualbox_version: 5.0, tags: virtualbox }
-    - { include: tasks/vagrant.yml, vagrant_version: 1.8.1, tags: vagrant }
-    - { include: tasks/maven.yml, maven_version: 3.3.9, tags: maven }
-    - { include: tasks/packer.yml, packer_version: 0.9.0, tags: packer }
-    - { include: tasks/consul.yml, consul_version: 0.6.3, tags: consul }
-    - { include: tasks/hub.yml, hub_version: 2.2.3, tags: hub }
-    - { include: tasks/docker.yml, tags: docker }
-    - { include: tasks/terraform.yml, terraform_version: 0.6.12, tags: terraform }
+  become: true
+  roles:
+    - { role: virtualbox, virtualbox_version: 5.0, tags: virtualbox }
+    - { role: vagrant, vagrant_version: 1.8.1, tags: vagrant }
+    - { role: maven, maven_version: 3.3.9, tags: maven }
+    - { role: packer, packer_version: 0.9.0, tags: packer }
+    - { role: consul, consul_version: 0.6.3, tags: consul }
+    - { role: hub, hub_version: 2.2.3, tags: hub }
+    - { role: docker, tags: docker }
+    - { role: terraform, terraform_version: 0.6.12, tags: terraform }

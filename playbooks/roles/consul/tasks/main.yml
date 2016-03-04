@@ -15,7 +15,7 @@
     sha256sum={{ consulsha256sum.stdout }}
 
 - name: Install Consul
-  sudo: yes
+  become: yes
   unarchive:
     src=/tmp/consul_{{ consul_version }}_linux_amd64.zip
     dest=/usr/local/bin

@@ -11,5 +11,5 @@
     dest=/tmp/
 
 - name: Install Hub
-  sudo: yes
+  become: yes
   shell: /tmp/hub-linux-amd64-{{ hub_version }}/install
