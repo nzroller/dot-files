@@ -1,7 +1,7 @@
 ---
 - name: Get Hub
   get_url:
-    url=https://github.com/github/hub/releases/download/v{{ hub_version }}/hub-linux-amd64-{{ hub_version }}.tar.gz
+    url=https://github.com/github/hub/releases/download/v{{ hub_version }}/hub-linux-amd64-{{ hub_version }}.tgz
     dest=/tmp/hub-linux-amd64-{{ hub_version }}.tar.gz
 
 - name: Unarchive Hub
@@ -12,11 +12,4 @@
 
 - name: Install Hub
   sudo: yes
-  synchronize:
-    src=/tmp/hub-linux-amd64-{{ hub_version }}/hub
-    dest=/usr/local/bin/hub
-
-- name: Install Hub completion
-  copy:
-    src=/tmp/hub-linux-amd64-{{ hub_version }}/etc/hub.bash_completion.sh
-    dest=/etc/bash_completion.d/hub
+  shell: /tmp/hub-linux-amd64-{{ hub_version }}/install

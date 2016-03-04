@@ -1,16 +1,16 @@
 ---
 - name: Get Packer checksums
   get_url:
-    url=https://dl.bintray.com/mitchellh/packer/packer_{{ packer_version }}_SHA256SUMS?direct
-    dest=/tmp/packer_{{ packer_version }}_SHA256SUMS
+    url=https://releases.hashicorp.com/packer/{{ packer_version }}/packer_{{ packer_version }}_SHA256SUMS.sig
+    dest=/tmp/packer_{{ packer_version }}_SHA256SUMS.sig
 
 - name: Register Packer linux_amd64 checksum
-  shell: sed -n -e 's/  *packer_{{ packer_version }}_linux_amd64.zip.*$//p' /tmp/packer_{{ packer_version }}_SHA256SUMS
+  shell: sed -n -e 's/  *packer_{{ packer_version }}_linux_amd64.zip.*$//p' /tmp/packer_{{ packer_version }}_SHA256SUMS.sig
   register: packersha256sum
 
 - name: Get Packer
   get_url:
-    url=https://dl.bintray.com/mitchellh/packer/packer_{{ packer_version }}_linux_amd64.zip
+    url=https://releases.hashicorp.com/packer/{{ packer_version }}/packer_{{ packer_version }}_linux_amd64.zip
     dest=/tmp/packer_{{ packer_version }}_linux_amd64.zip
     sha256sum={{ packersha256sum.stdout }}
 
@@ -23,9 +23,4 @@
 - name: Get Packer completion
   get_url:
     url=https://raw.githubusercontent.com/mrolli/packer-bash-completion/master/packer
-    dest=/tmp/packer_completion.sh
-
-- name: Install Packer completion
-  copy:
-    src=/tmp/packer_completion.sh
     dest=/etc/bash_completion.d/packer

@@ -1,20 +1,12 @@
 ---
 - hosts: ubuntu
   sudo: true
-  roles:
-    - {
-    role: java_install,
-    oracle_jdk_java_version_default: 8,
-    oracle_jdk_java_versions: [7,8],
-    tags: java
-    }
-
   tasks:
-    - { include: tasks/virtualbox.yml, virtualbox_version: 4.3, tags: virtualbox }
-    - { include: tasks/vagrant.yml, vagrant_version: 1.7.2, tags: vagrant }
-    - { include: tasks/maven.yml, maven_version: 3.3.3, tags: maven }
-    - { include: tasks/packer.yml, packer_version: 0.7.5, tags: packer }
-    - { include: tasks/consul.yml, consul_version: 0.5.2, tags: consul }
-    - { include: tasks/hub.yml, hub_version: 2.2.1, tags: hub }
+    - { include: tasks/virtualbox.yml, virtualbox_version: 5.0, tags: virtualbox }
+    - { include: tasks/vagrant.yml, vagrant_version: 1.8.1, tags: vagrant }
+    - { include: tasks/maven.yml, maven_version: 3.3.9, tags: maven }
+    - { include: tasks/packer.yml, packer_version: 0.9.0, tags: packer }
+    - { include: tasks/consul.yml, consul_version: 0.6.3, tags: consul }
+    - { include: tasks/hub.yml, hub_version: 2.2.3, tags: hub }
     - { include: tasks/docker.yml, tags: docker }
-    - { include: tasks/terraform.yml, terraform_version: 0.5.3, tags: terraform }
+    - { include: tasks/terraform.yml, terraform_version: 0.6.12, tags: terraform }

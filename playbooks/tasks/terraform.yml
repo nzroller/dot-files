@@ -1,7 +1,7 @@
 ---
 - name: Get Terraform checksums
   get_url:
-    url=https://dl.bintray.com/mitchellh/terraform/terraform_{{ terraform_version }}_SHA256SUMS?direct
+    url=https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_SHA256SUMS
     dest=/tmp/terraform_{{ terraform_version }}_SHA256SUMS
 
 - name: Register Terraform linux_amd64 checksum
@@ -10,7 +10,7 @@
 
 - name: Get Terraform
   get_url:
-    url=https://dl.bintray.com/mitchellh/terraform/terraform_{{ terraform_version }}_linux_amd64.zip
+    url=https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_linux_amd64.zip
     dest=/tmp/terraform_{{ terraform_version }}_linux_amd64.zip
     sha256sum={{ terraformsha256sum.stdout }}
 
