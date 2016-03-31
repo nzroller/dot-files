@@ -1,0 +1,24 @@
+set completion-ignore-case on
+set show-all-if-ambiguous on
+set mark-symlinked-directories on
+set page-completions off
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\e[1;5C": forward-word     # Ctrl+right  => forward word
+"\e[1;5D": backward-word    # Ctrl+left   => backward word
+"\e[1;2B": history-search-forward
+"\e[1;2A": history-search-backward
+
+#
+# ...added...
+#
+"\e\e[C": forward-word
+"\e\e[D": backward-word
+#"\eOD": backward-word
+#"\eOC": forward-word
+#
+# ...existing...
+#
+#"TAB": "\M-\C-e\M-\C-t"
+#"\M-\C-t": complete
+"\e\C-l": alias-expand-line
