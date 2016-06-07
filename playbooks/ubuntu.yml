@@ -5,8 +5,8 @@
     - { role: virtualbox, virtualbox_version: 5.0, tags: virtualbox }
     - { role: vagrant, vagrant_version: 1.8.1, tags: vagrant }
     - { role: maven, maven_version: 3.3.9, tags: maven }
-    - { role: packer, packer_version: 0.9.0, tags: packer }
-    - { role: consul, consul_version: 0.6.3, tags: consul }
+    - { role: packer, packer_version: 0.10.1, tags: packer }
+    - { role: consul, consul_version: 0.6.4, tags: consul }
     - { role: hub, hub_version: 2.2.3, tags: hub }
     - { role: docker, tags: docker }
-    - { role: terraform, terraform_version: 0.6.12, tags: terraform }
+    - { role: terraform, terraform_version: 0.6.16, tags: terraform }

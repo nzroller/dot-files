@@ -28,6 +28,7 @@
      ("#073642" . 100))))
  '(indent-tabs-mode nil)
  '(jit-lock-defer-time 0.005)
+ '(json-reformat:indent-width 2)
  '(magit-use-overlays nil)
  '(markdown-command "mdpress")
  '(markdown-command-needs-filename t)

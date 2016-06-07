@@ -169,7 +169,7 @@ export ANDROID_HOME=/opt/android-sdk-linux
 
 PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools # Add android tools
 
-PATH=$PATH:$HOME/wildfly/wildfly-9.0.2.Final/bin # Wildfly
+PATH=$HOME/.rbenv/bin:$PATH # rbenv
 
 function upfind() {
   dir=`pwd`
@@ -194,7 +194,7 @@ function gw() {
 
 complete -C '/usr/local/bin/aws_completer' aws
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/.local/bin" # Add .local/bin to PATH for powerline
 
 # added by travis gem
 [ -f /home/tim/.travis/travis.sh ] && source /home/tim/.travis/travis.sh
@@ -204,3 +204,5 @@ EDITOR="emacsclient -t"
 function findrecursive() {
     find . -type d \( -path \*/.git -o -path \*/target \) -prune -o -type f -exec grep -l -e "$1" {} +
 }
+
+eval "$(rbenv init -)"
