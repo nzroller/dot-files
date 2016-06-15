@@ -3,7 +3,7 @@
   become: true
   roles:
     - { role: virtualbox, virtualbox_version: 5.0, tags: virtualbox }
-    - { role: vagrant, vagrant_version: 1.8.1, tags: vagrant }
+    - { role: vagrant, vagrant_version: 1.8.4, tags: vagrant }
     - { role: maven, maven_version: 3.3.9, tags: maven }
     - { role: packer, packer_version: 0.10.1, tags: packer }
     - { role: consul, consul_version: 0.6.4, tags: consul }
