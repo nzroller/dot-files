@@ -30,3 +30,4 @@ alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 alias s='ls'
 alias sshfs="sshfs -o Ciphers=arcfour,reconnect,compression=yes,transform_symlinks,ServerAliveInterval=45,ServerAliveCountMax=2,ssh_command='autossh -M 0'"
+alias dc="docker-compose"
