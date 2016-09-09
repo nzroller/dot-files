@@ -1,0 +1,8 @@
+- name: apt packages
+  apt: pkg={{ item }}
+  with_items: "{{ packages }}"
+
+- name: pip packages
+  pip: name={{ item }}
+  with_items:
+  - awscli

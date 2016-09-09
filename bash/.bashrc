@@ -169,8 +169,6 @@ export ANDROID_HOME=/opt/android-sdk-linux
 
 PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools # Add android tools
 
-PATH=$HOME/.rbenv/bin:$PATH # rbenv
-
 function upfind() {
   dir=`pwd`
   while [ "$dir" != "/" ]; do
@@ -205,6 +203,3 @@ function findrecursive() {
     find . -type d \( -path \*/.git -o -path \*/target \) -prune -o -type f -exec grep -l -e "$1" {} +
 }
 
-eval "$(rbenv init -)"
-
-# . ~/projects/infra-automation/setup-environment

@@ -1,0 +1,9 @@
+packages:
+- gnome-terminal
+- byobu
+- emacs-nox
+- stow
+- dconf-cli
+- grc
+- python-pip
+- xsel

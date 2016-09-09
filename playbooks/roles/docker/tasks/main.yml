@@ -7,13 +7,16 @@
 
 - name: Remove old Docker repository
   apt_repository:
-    repo: 'deb http://get.docker.io/ubuntu docker main'
+    repo: "{{ item }}"
     update_cache: yes
     state: absent
+  with_items:
+  - 'deb http://get.docker.io/ubuntu docker main'
+  - 'deb https://apt.dockerproject.org/repo ubuntu-trusty main' 
 
 - name: Add Docker repository
   apt_repository:
-    repo: 'deb https://apt.dockerproject.org/repo ubuntu-trusty main'
+    repo: 'deb https://apt.dockerproject.org/repo ubuntu-{{ ansible_distribution_release }} main'
     update_cache: yes
 
 - name: Remove old Docker
