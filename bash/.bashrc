@@ -206,3 +206,5 @@ function findrecursive() {
 }
 
 eval "$(rbenv init -)"
+
+# . ~/projects/infra-automation/setup-environment
