@@ -2,12 +2,12 @@
 - hosts: ubuntu
   become: true
   roles:
-    - { role: virtualbox, virtualbox_version: 5.0, tags: virtualbox }
-    - { role: vagrant, vagrant_version: 1.9.1, tags: vagrant }
-    - { role: maven, maven_version: 3.3.9, tags: maven }
-    - { role: packer, packer_version: 0.12.2, tags: packer }
-    - { role: consul, consul_version: 0.7.2, tags: consul }
-    - { role: hub, hub_version: 2.3.0-pre8, tags: hub }
+    - { role: virtualbox, virtualbox_version: 5.1, tags: virtualbox }
+    - { role: vagrant, vagrant_version: 1.9.7, tags: vagrant }
+    - { role: maven, maven_version: 3.5.0, tags: maven }
+    - { role: packer, packer_version: 1.0.3, tags: packer }
+    - { role: consul, consul_version: 0.9.0, tags: consul }
+    - { role: hub, hub_version: 2.3.0-pre10, tags: hub }
     - { role: docker, tags: docker }
-    - { role: terraform, terraform_version: 0.8.5, tags: terraform }
+    - { role: terraform, terraform_version: 0.9.11, tags: terraform }
     - { role: golang, tags: golang }
