@@ -2,6 +2,10 @@
   apt: pkg={{ item }}
   with_items: "{{ packages }}"
 
+- name: apt packages remove
+  apt: pkg={{ item }} state=absent
+  with_items: "{{ remove_packages }}"
+
 - name: pip packages
   pip: name={{ item }}
   with_items:

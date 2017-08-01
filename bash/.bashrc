@@ -155,7 +155,7 @@ function r() {
 
 # . /home/tim/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
 
-export GOPATH=$HOME/src/go
+export GOPATH=$HOME
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 if [ -f $HOME/.markrc ]; then

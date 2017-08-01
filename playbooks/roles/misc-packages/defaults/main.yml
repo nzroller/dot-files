@@ -7,3 +7,16 @@ packages:
 - grc
 - python-pip
 - xsel
+- curl
+- silversearcher-ag
+- compton
+- powertop
+- acpi
+- libsecret-tools
+- expect
+- openvpn
+
+remove_packages:
+- thunderbird
+- thunderbird-locale-en-us
+- thunderbird-locale-en
