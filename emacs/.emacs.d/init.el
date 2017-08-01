@@ -92,6 +92,7 @@
                            expand-region
                            fic-mode
                            flx-ido
+                           flatland-theme
                            flycheck
                            flycheck-color-mode-line
                            flycheck-haskell
@@ -99,8 +100,6 @@
                            flyspell-lazy
                            ghc
                            gist
-                           git-commit-mode
-                           git-rebase-mode
                            git-timemachine
                            go-direx
                            go-eldoc
