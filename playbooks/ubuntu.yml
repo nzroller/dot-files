@@ -9,5 +9,6 @@
     - { role: consul, consul_version: 1.0.1, tags: consul }
     - { role: hub, hub_version: 2.3.0-pre10, tags: hub }
     - { role: docker, tags: docker }
-    - { role: terraform, terraform_version: 0.11.0, tags: terraform }
+    - { role: terraform, terraform_version: 0.11.1, tags: terraform }
     - { role: golang, tags: golang }
+    - { role: misc, tags: misc }

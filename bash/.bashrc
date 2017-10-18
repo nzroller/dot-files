@@ -109,6 +109,11 @@ if [ -f ~/.secret_aliases ]; then
     . ~/.secret_aliases
 fi
 
+# .secretbashrc contain secret bashrc stuff
+if [ -f ~/.secretbashrc ]; then
+    . ~/.secretbashrc
+fi
+
 # .github_tokens are secret
 if [ -f ~/.github_tokens ]; then
     . ~/.github_tokens

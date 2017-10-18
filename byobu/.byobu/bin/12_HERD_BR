@@ -1,0 +1,2 @@
+#!/bin/sh
+echo "BR:$(curl -s http://herd.izettle.com/currentstatus | jq '.payment.BR.successRate | tostring | .[:3] | tonumber')"

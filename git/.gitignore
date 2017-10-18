@@ -150,3 +150,9 @@ TAGS
 
 # Ansible
 *.retry
+.dirs-local.el
+
+# Terraform
+*.plan
+.terraform
+terraform.tfstate.d

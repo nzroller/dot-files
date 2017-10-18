@@ -1,0 +1,25 @@
+byobu
+autossh
+git
+emacs-nox
+powertop
+https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.02.12_amd64.deb
+python-gpgme
+redshift
+rtorrent
+xsel
+postgresql-client-9.4
+spotify: https://www.spotify.com/se/download/linux/
+Dependency:
+ - https://packages.debian.org/wheezy/amd64/libgcrypt11/download
+https://github.com/monochromegane/the_platinum_searcher/releases
+gnome-terminal
+mplayer
+silversearcher-ag
+# Ruby
+gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+curl -L https://get.rvm.io | bash -s stable --ruby=2.1.1
+# Some graphics stuff -- nvidia-current
+# pgcli + deps
+sudo apt-get install python-dev libpq-dev libevent-dev
+sudo pip install pgcli

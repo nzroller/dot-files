@@ -3,6 +3,8 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file 'noerror)
 
+(add-hook 'terraform-mode-hook #'terraform-format-on-save-mode)
+
 ;;;; Swedish Keyboard and copy stuff
 
 ;; http://hugoheden.wordpress.com/2009/03/08/copypaste-with-emacs-in-terminal/
@@ -71,11 +73,14 @@
 ;;;; PACKAGES
 (require 'package)
 (add-to-list 'package-archives
+             '("org" . "http://orgmode.org/elpa/") t)
+(add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 (package-initialize)
 (require 'cl)
 (defvar prelude-packages '(
+                           ace-jump-mode
                            ag
                            ansible
                            anzu
@@ -133,6 +138,7 @@
                            smex
                            smooth-scrolling
                            toml-mode
+                           terraform-mode
                            undo-tree
                            web-mode
                            yaml-mode
@@ -193,6 +199,9 @@
 
 ;; highlight current symbol in prog-mode
 (add-hook 'prog-mode-hook 'highlight-symbol-mode)
+(setq highlight-symbol-on-navigation-p t)
+(global-set-key [f3] 'highlight-symbol-next)
+(global-set-key [(shift f3)] 'highlight-symbol-prev)
 
 ;; use autopair everywhere
 (autopair-global-mode t)
@@ -252,6 +261,7 @@
 (setq ring-bell-function 'ignore)
 
 ;; always delete trailing whitespace
+;;(remove-hook 'before-save-hook 'delete-trailing-whitespace)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; use core-utils for dired
@@ -299,6 +309,8 @@
 
 ;; autoload idomenu
 (autoload 'idomenu "idomenu" nil t)
+;; autoload jump-mode
+(autoload 'ace-jump-mode "ace-jump-mode" "Emacs quick move minor mode" t)
 
 ;;;; ELISP
 
@@ -560,3 +572,30 @@
 (editorconfig-mode 1)
 (provide 'init)
 ;;;
+
+(setq org-agenda-files (list "~/src/agenda/work.org"))
+
+;; Allow automatically handing of created/expired meta data.
+(require 'org-expiry)
+;; Configure it a bit to my liking
+(setq
+  org-expiry-created-property-name "CREATED" ; Name of property when an item is created
+  org-expiry-inactive-timestamps   t         ; Don't have everything in the agenda view
+)
+
+(defun mrb/insert-created-timestamp()
+  "Insert a CREATED property using org-expiry.el for TODO entries"
+  (org-expiry-insert-created)
+  (org-back-to-heading)
+  (org-end-of-line)
+  (insert " ")
+)
+
+;; Whenever a TODO entry is created, I want a timestamp
+;; Advice org-insert-todo-heading to insert a created timestamp using org-expiry
+(defadvice org-insert-todo-heading (after mrb/created-timestamp-advice activate)
+  "Insert a CREATED property using org-expiry.el for TODO entries"
+  (mrb/insert-created-timestamp)
+)
+;; Make it active
+(ad-activate 'org-insert-todo-heading)
