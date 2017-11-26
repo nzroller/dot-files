@@ -33,7 +33,10 @@
  '(markdown-command "mdpress")
  '(markdown-command-needs-filename t)
  '(nxml-child-indent 4)
- '(org-todo-keywords (quote ((sequence "TODO" "NEXT" "DOING" "WAITING" "DONE"))))
+ '(org-agenda-skip-scheduled-if-done t)
+ '(org-todo-keywords
+   (quote
+    ((sequence "TODO(t)" "NEXT(n)" "WAITING(w)" "DONE(d)" "DISCARDED" "DELEGATED"))))
  '(safe-local-variable-values (quote ((whitespace-line-column . 60))))
  '(savehist-mode t)
  '(sh-basic-offset 2)

@@ -27,9 +27,8 @@
 [branch]
   autosetupmerge = true
 [push]
-  default = tracking
+  default = current
 [include]
     path = ~/.gitconfig.local
 [fetch]
   prune = true
-

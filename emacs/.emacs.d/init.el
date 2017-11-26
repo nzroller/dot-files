@@ -72,6 +72,7 @@
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 (package-initialize)
 (require 'cl)
 (defvar prelude-packages '(
@@ -118,6 +119,7 @@
                            json-mode
                            magit
                            markdown-mode
+                           org-plus-contrib
                            paredit
                            popwin
                            processing-mode
@@ -548,6 +550,12 @@
 (add-hook 'window-setup-hook 'on-after-init)
 
 (setq magit-last-seen-setup-instructions "1.4.0")
+
+;; org-expiry too
+(require 'org-expiry)
+(org-expiry-insinuate)
+(setq org-expiry-inactive-timestamps t)
+
 (load "editorconfig")
 (editorconfig-mode 1)
 (provide 'init)
