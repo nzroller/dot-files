@@ -37,7 +37,16 @@
  '(org-agenda-skip-scheduled-if-done t)
  '(org-agenda-files
    (quote
-    ("~/Dropbox/Private/GTD/Inbox.org" "~/Dropbox/Private/GTD/Personal.org" "~/Dropbox/Private/GTD/Work.org")))
+    ("~/Dropbox/Private/GTD/Inbox.org" "~/Dropbox/Private/GTD/Work.org")))
+ '(org-capture-templates
+   (quote
+    (("a" "Add note" entry
+      (file+headline org-default-notes-file "Tasks")
+      "** %?
+   %i
+   :PROPERTIES:
+   :CREATED:  [[%U]]
+   :END:"))))
  '(org-custom-properties (quote ("CREATED")))
  '(org-default-notes-file "~/Dropbox/Private/GTD/Inbox.org")
  '(org-log-done (quote time))

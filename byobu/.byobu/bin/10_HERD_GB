@@ -1,2 +1,5 @@
 #!/bin/sh
-echo "GB:$(curl -s http://herd.izettle.com/currentstatus | jq '.payment.SE.successRate | tostring | .[:3] | tonumber')"
+. "/usr/lib/byobu/include/shutil"
+echo "GB:$(curl -s http://herd.izettle.com/currentstatus | jq '.payment.GB.successRate | tostring | .[:3] | tonumber')"
+
+# color m W; printf "%s" "$LOGO"; color -

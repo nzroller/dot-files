@@ -71,9 +71,19 @@
 (setq inhibit-startup-echo-area-message t)
 
 ;;;; PACKAGES
+;; (if (fboundp 'gnutls-available-p)
+;;     (fmakunbound 'gnutls-available-p))
+;; (setq tls-program '("gnutls-cli --tofu -p %p %h")
+;;       imap-ssl-program '("gnutls-cli --tofu -p %p %s")
+;;       smtpmail-stream-type 'starttls
+;;       starttls-extra-arguments '("--tofu")
+;;       )
 (require 'package)
 (add-to-list 'package-archives
              '("org" . "http://orgmode.org/elpa/") t)
+(add-to-list 'package-archives '("milkbox" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
@@ -111,6 +121,7 @@
                            go-eldoc
                            go-mode
                            go-snippets
+                           groovy-mode
                            haskell-mode
                            hi2
                            highlight-symbol
@@ -599,3 +610,50 @@
 )
 ;; Make it active
 (ad-activate 'org-insert-todo-heading)
+
+
+;;;  Jonas.Jarnestrom<at>ki.ericsson.se A smarter
+;;;  find-tag that automagically reruns etags when it cant find a
+;;;  requested item and then makes a new try to locate it.
+;;;  Fri Mar 15 09:52:14 2002
+
+(defadvice find-tag (around refresh-etags activate)
+ "Rerun etags and reload tags if tag not found and redo find-tag.
+ If buffer is modified, ask about save before running etags."
+(let ((extension (file-name-extension (buffer-file-name))))
+  (condition-case err
+  ad-do-it
+    (error (and (buffer-modified-p)
+        (not (ding))
+        (y-or-n-p "Buffer is modified, save it? ")
+        (save-buffer))
+       (er-refresh-etags extension)
+       ad-do-it))))
+
+(defun er-refresh-etags (&optional extension)
+"Run etags on all peer files in current dir and reload them silently."
+(interactive)
+(shell-command (format "etags *.%s" (or extension "el")))
+(let ((tags-revert-without-query t))  ; don't query, revert silently
+  (visit-tags-table default-directory nil)))
+
+
+(defconst modi/linum-mode-hooks '(verilog-mode-hook
+                                  emacs-lisp-mode-hook
+                                  cperl-mode-hook
+                                  c-mode-hook
+                                  python-mode-hook
+                                  matlab-mode-hook
+                                  sh-mode-hook
+                                  web-mode-hook
+                                  html-mode-hook
+                                  css-mode-hook
+                                  makefile-gmake-mode-hook
+                                  tcl-mode-hook)
+  "List of hooks of major modes in which a linum mode should be enabled.")
+(when global-linum-mode
+      (global-linum-mode -1))
+(dolist (hook modi/linum-mode-hooks)
+      (add-hook hook #'linum-mode))
+
+(setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))

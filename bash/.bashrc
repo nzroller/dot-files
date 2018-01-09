@@ -22,7 +22,6 @@ HISTFILESIZE=200000
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
-
 shopt -s autocd
 
 # If set, the pattern "**" used in a pathname expansion context will
@@ -136,7 +135,6 @@ export LESSOPEN='|~/.lessfilter %s'
 # eval "$(lesspipe)"
 
 export PROMPT_COMMAND="history -a"
-shopt -s histappend
 
 alias pcat='~/.lessfilter'
 
