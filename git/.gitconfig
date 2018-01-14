@@ -11,7 +11,7 @@
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   branch-dates = "!f() { git for-each-ref --sort=committerdate refs/${1:-heads}/ --format='%(committerdate:short)\t%(authorname)\t%(refname:short)' | sed 's_origin/__g' | column -t -s'\t' ; } ; f"
   locate = "!f() { git ls-tree -r --name-only HEAD | grep -i --color -E $1 - ; } ; f"
-	quick-stats = ! /usr/local/bin/git-quick-stats
+  quick-stats = ! /usr/local/bin/git-quick-stats
 [color]
   diff = auto
   status = auto

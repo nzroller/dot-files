@@ -10,3 +10,4 @@
   pip: name={{ item }}
   with_items:
   - awscli
+  - google-api-python-client

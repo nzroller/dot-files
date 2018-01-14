@@ -15,6 +15,7 @@ packages:
 - libsecret-tools
 - expect
 - openvpn
+- libxml2-utils
 
 remove_packages:
 - thunderbird

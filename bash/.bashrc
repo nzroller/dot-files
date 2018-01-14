@@ -206,3 +206,4 @@ function findrecursive() {
     find . -type d \( -path \*/.git -o -path \*/target \) -prune -o -type f -exec grep -l -e "$1" {} +
 }
 
+eval "$(jira --completion-script-bash)"

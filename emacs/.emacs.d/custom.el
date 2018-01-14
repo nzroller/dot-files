@@ -34,19 +34,20 @@
  '(markdown-command "mdpress")
  '(markdown-command-needs-filename t)
  '(nxml-child-indent 4)
- '(org-agenda-skip-scheduled-if-done t)
  '(org-agenda-files
    (quote
     ("~/Dropbox/Private/GTD/Inbox.org" "~/Dropbox/Private/GTD/Work.org")))
+ '(org-agenda-skip-scheduled-if-done t)
  '(org-capture-templates
    (quote
     (("a" "Add note" entry
       (file+headline org-default-notes-file "Tasks")
       "** %?
-   %i
    :PROPERTIES:
    :CREATED:  [[%U]]
-   :END:"))))
+   :END:
+
+   %i"))))
  '(org-custom-properties (quote ("CREATED")))
  '(org-default-notes-file "~/Dropbox/Private/GTD/Inbox.org")
  '(org-log-done (quote time))
