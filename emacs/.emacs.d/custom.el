@@ -36,7 +36,7 @@
  '(nxml-child-indent 4)
  '(org-agenda-files
    (quote
-    ("~/Dropbox/Private/GTD/Inbox.org" "~/Dropbox/Private/GTD/Work.org")))
+    ("~/Dropbox/Private/GTD/Work.org" "~/Dropbox/Private/GTD/Inbox.org" "~/Dropbox/Private/GTD/Agendas.org")))
  '(org-agenda-skip-scheduled-if-done t)
  '(org-capture-templates
    (quote
@@ -47,7 +47,8 @@
    :CREATED:  [[%U]]
    :END:
 
-   %i"))))
+   %i
+"))))
  '(org-custom-properties (quote ("CREATED")))
  '(org-default-notes-file "~/Dropbox/Private/GTD/Inbox.org")
  '(org-log-done (quote time))
