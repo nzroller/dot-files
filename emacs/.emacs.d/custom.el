@@ -43,6 +43,7 @@
     (("a" "Add note" entry
       (file+headline org-default-notes-file "Tasks")
       "** %?
+   SCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+1d\"))
    :PROPERTIES:
    :CREATED:  [[%U]]
    :END:
