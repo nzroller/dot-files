@@ -1,5 +1,6 @@
 apt_repos:
 - ppa:phoerious/keepassxc
+- ppa:yubico/stable
 
 packages:
 - gnome-terminal
@@ -24,6 +25,10 @@ packages:
 - nautilus-dropbox
 - keepassxc
 - postgresql-client
+- yubikey-manager
+- yubioath-desktop
+- yubikey-personalization
+- jq
 
 remove_packages:
 - thunderbird

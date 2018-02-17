@@ -13,3 +13,4 @@
     - { role: terraform, terraform_version: 0.11.3, tags: terraform }
     - { role: golang, tags: golang }
     - { role: misc, tags: misc }
+    - { role: ides, tags: ides }

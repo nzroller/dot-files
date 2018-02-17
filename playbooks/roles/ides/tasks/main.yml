@@ -1,0 +1,15 @@
+---
+- name: Find Ubuntu Make
+  apt_repository:
+    repo: "ppa:lyzardking/ubuntu-make"
+    update_cache: yes
+- name: and install it
+  apt: pkg=ubuntu-make
+- name: in order to install eclipse
+  become: no
+  shell: umake ide eclipse /opt/eclipse
+    creates=/opt/eclipse/eclipse
+- name: and idea too
+  become: no
+  shell: umake ide idea /opt/idea
+    creates=/opt/idea/bin/idea.sh
