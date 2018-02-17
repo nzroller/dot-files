@@ -1,4 +1,13 @@
 ---
 - name: Install Packages
   apt: pkg={{ item }}
-  with_items: programs
+  with_items: "{{ programs }}"
+- name: Install binaries
+  get_url: url={{ item.url }}
+    dest=/usr/local/bin/{{ item.binary }}
+    checksum="sha256:{{ item.sha256 }}"
+    mode="0755"
+  with_items:
+  - binary: jira
+    url: "https://github.com/Netflix-Skunkworks/go-jira/releases/download/v1.0.14/jira-linux-amd64"
+    sha256: "8ac583cfd77aee4c085a86a58d14ca45f983513ae7d6cc56a52449589577afde"

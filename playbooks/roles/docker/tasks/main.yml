@@ -5,6 +5,9 @@
 - name: Add Docker repository key
   apt_key: keyserver=p80.pool.sks-keyservers.net id=58118E89F3A912897C070ADBF76221572C52609D
 
+- name: Add Docker repository key
+  apt_key: url=https://download.docker.com/linux/ubuntu/gpg
+
 - name: Remove old Docker repository
   apt_repository:
     repo: "{{ item }}"
@@ -12,15 +15,22 @@
     state: absent
   with_items:
   - 'deb http://get.docker.io/ubuntu docker main'
+  - 'deb https://apt.dockerproject.org/repo ubuntu-{{ ansible_distribution_release }} main'
+  - 'deb https://apt.dockerproject.org/repo ubuntu-zesty main'
   - 'deb https://apt.dockerproject.org/repo ubuntu-trusty main' 
 
 - name: Add Docker repository
   apt_repository:
-    repo: 'deb https://apt.dockerproject.org/repo ubuntu-{{ ansible_distribution_release }} main'
+    repo: 'deb  [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable'
     update_cache: yes
 
 - name: Remove old Docker
-  apt: pkg=lxc-docker state=absent
+  apt: pkg={{ item }} state=absent
+  with_items:
+  - docker-lxc
+  - docker
+  - docker-engine 
+  - docker.io
 
-- name: Install Docker
-  apt: pkg=docker-engine
+- name: Install Docker CE
+  apt: pkg=docker-ce

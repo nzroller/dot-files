@@ -1,3 +1,6 @@
+apt_repos:
+- ppa:phoerious/keepassxc
+
 packages:
 - gnome-terminal
 - byobu
@@ -16,6 +19,11 @@ packages:
 - expect
 - openvpn
 - libxml2-utils
+- net-tools
+- acpi
+- nautilus-dropbox
+- keepassxc
+- postgresql-client
 
 remove_packages:
 - thunderbird

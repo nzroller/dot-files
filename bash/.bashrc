@@ -156,8 +156,6 @@ function r() {
   fi
 }
 
-# . /home/tim/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
-
 export GOPATH=$HOME
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
@@ -198,7 +196,7 @@ complete -C '/usr/local/bin/aws_completer' aws
 export PATH="$PATH:$HOME/.local/bin" # Add .local/bin to PATH for powerline
 
 # added by travis gem
-[ -f /home/tim/.travis/travis.sh ] && source /home/tim/.travis/travis.sh
+[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
 EDITOR="emacsclient -t"
 
@@ -206,4 +204,6 @@ function findrecursive() {
     find . -type d \( -path \*/.git -o -path \*/target \) -prune -o -type f -exec grep -l -e "$1" {} +
 }
 
-eval "$(jira --completion-script-bash)"
+[ -f /usr/local/bin/jira ] && eval "$(jira --completion-script-bash)"
+
+[ -r $HOME/.byobu/prompt ] && . $HOME/.byobu/prompt   #byobu-prompt#

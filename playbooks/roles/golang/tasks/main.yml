@@ -1,2 +1,3 @@
-- apt_repository: repo='ppa:ubuntu-lxc/lxd-stable'
+
+- apt_repository: repo='ppa:gophers/archive'
 - apt: pkg=golang

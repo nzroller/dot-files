@@ -1,3 +1,7 @@
+- name: apt repos
+  apt_repository: repo={{ item }}
+  with_items: "{{ apt_repos }}"
+
 - name: apt packages
   apt: pkg={{ item }}
   with_items: "{{ packages }}"
