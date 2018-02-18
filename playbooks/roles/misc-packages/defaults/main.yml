@@ -13,7 +13,6 @@ packages:
 - xsel
 - curl
 - silversearcher-ag
-- compton
 - powertop
 - acpi
 - libsecret-tools
@@ -29,8 +28,13 @@ packages:
 - yubioath-desktop
 - yubikey-personalization
 - jq
+- gconf2
+- gconf-editor
 
 remove_packages:
+- compton
+- xfce4
+- dconf-cli
 - thunderbird
 - thunderbird-locale-en-us
 - thunderbird-locale-en
