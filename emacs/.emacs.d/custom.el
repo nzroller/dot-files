@@ -34,18 +34,15 @@
  '(markdown-command "mdpress")
  '(markdown-command-needs-filename t)
  '(nxml-child-indent 4)
- '(org-agenda-files
-   (quote
-    ("~/Dropbox/Private/GTD/Work.org" "~/Dropbox/Private/GTD/Inbox.org" "~/Dropbox/Private/GTD/Agendas.org")))
+ '(org-agenda-files (quote ("~/Dropbox/Private/GTD")))
  '(org-agenda-skip-scheduled-if-done t)
  '(org-capture-templates
    (quote
     (("a" "Add note" entry
       (file+headline org-default-notes-file "Tasks")
       "** %?
-   SCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+1d\"))
    :PROPERTIES:
-   :CREATED:  [[%U]]
+   :CREATED:  %U
    :END:
 
    %i
@@ -53,12 +50,13 @@
  '(org-custom-properties (quote ("CREATED")))
  '(org-default-notes-file "~/Dropbox/Private/GTD/Inbox.org")
  '(org-log-done (quote time))
+ '(org-refile-targets (quote ((org-agenda-files :maxlevel . 1))))
  '(org-todo-keywords
    (quote
     ((sequence "NEXT" "WAITING" "|" "DONE" "DELEGATED" "DISCARDED"))))
  '(package-selected-packages
    (quote
-    (zenburn-theme yaml-mode web-mode undo-tree terraform-mode toml-mode smooth-scrolling smex smart-mode-line shm scala-mode rust-mode rainbow-delimiters puppet-mode projectile processing-mode popwin paredit org-plus-contrib markdown-mode magit json-mode js2-mode ir-black-theme imenu-anywhere idomenu ido-vertical-mode hindent highlight-symbol hi2 groovy-mode go-snippets go-eldoc go-direx git-timemachine gist flyspell-lazy flycheck-rust flycheck-haskell flycheck-color-mode-line flycheck flatland-theme flx-ido fic-mode expand-region exec-path-from-shell enh-ruby-mode editorconfig dockerfile-mode company-inf-ruby company-ghc company-go company better-defaults autopair auto-package-update anzu ansible ag ace-jump-mode)))
+    (fzf csv-mode magit-find-file lsp-mode zenburn-theme yaml-mode web-mode undo-tree terraform-mode toml-mode smooth-scrolling smex smart-mode-line shm scala-mode rust-mode rainbow-delimiters puppet-mode projectile processing-mode popwin paredit org-plus-contrib markdown-mode magit json-mode js2-mode ir-black-theme imenu-anywhere idomenu ido-vertical-mode hindent highlight-symbol hi2 groovy-mode go-snippets go-eldoc go-direx git-timemachine gist flyspell-lazy flycheck-rust flycheck-haskell flycheck-color-mode-line flycheck flatland-theme flx-ido fic-mode expand-region exec-path-from-shell enh-ruby-mode editorconfig dockerfile-mode company-inf-ruby company-ghc company-go company better-defaults autopair auto-package-update anzu ansible ag ace-jump-mode)))
  '(safe-local-variable-values (quote ((whitespace-line-column . 60))))
  '(savehist-mode t)
  '(sh-basic-offset 2)

@@ -207,3 +207,8 @@ function findrecursive() {
 [ -f /usr/local/bin/jira ] && eval "$(jira --completion-script-bash)"
 
 [ -r $HOME/.byobu/prompt ] && . $HOME/.byobu/prompt   #byobu-prompt#
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+source <(kubectl completion bash)
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

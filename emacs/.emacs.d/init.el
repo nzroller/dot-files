@@ -2,7 +2,6 @@
 
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file 'noerror)
-
 (add-hook 'terraform-mode-hook #'terraform-format-on-save-mode)
 
 ;;;; Swedish Keyboard and copy stuff
@@ -539,6 +538,8 @@
 ;; unmap upcase-region, since it always screws with undo
 (global-unset-key (kbd "C-x C-u"))
 
+(global-set-key (kbd "C-c p") 'magit-find-file-completing-read)
+
 (custom-set-faces
  '(company-preview
    ((t (:foreground "darkgray" :underline t))))
@@ -583,8 +584,6 @@
 (editorconfig-mode 1)
 (provide 'init)
 ;;;
-
-(setq org-agenda-files (list "~/src/agenda/work.org"))
 
 ;; Allow automatically handing of created/expired meta data.
 (require 'org-expiry)
@@ -657,3 +656,9 @@
       (add-hook hook #'linum-mode))
 
 (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
+
+(defun create-tags (dir-name)
+     "Create tags file."
+     (interactive "DDirectory: ")
+     (eshell-command
+      (format "find %s -type f -name \"*.java\" | etags -" dir-name)))

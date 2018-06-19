@@ -21,3 +21,5 @@ PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 # Ubuntu make installation of Ubuntu Make binary symlink
 PATH=/home/tim/.local/share/umake/bin:$PATH
 
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"

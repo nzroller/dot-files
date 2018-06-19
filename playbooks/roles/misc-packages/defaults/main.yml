@@ -30,6 +30,7 @@ packages:
 - jq
 - gconf2
 - gconf-editor
+- gimp
 
 remove_packages:
 - compton

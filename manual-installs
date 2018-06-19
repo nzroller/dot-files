@@ -25,3 +25,14 @@ silversearcher-ag
 # pgcli + deps
 sudo apt-get install python-dev libpq-dev libevent-dev
 # sudo pip install pgcli
+# edit /etc/gdm3/custom.conf display wayland
+
+# postman
+
+https://askubuntu.com/questions/918462/ubuntu-17-04-printer-added-notifications-under-gnome
+
+exiv2
+postman
+editorconfig
+git clone https://github.com/gcuisinier/jenv.git ~/.jenv
+sudo snap install kubectl --classic
