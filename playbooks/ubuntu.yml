@@ -4,13 +4,11 @@
   roles:
     - { role: docker, tags: docker }
     - { role: misc-packages, tags: misc-packages }
-    - { role: virtualbox, virtualbox_version: 5.2, tags: virtualbox }
-    - { role: vagrant, vagrant_version: 2.0.2, tags: vagrant }
-    - { role: maven, maven_version: 3.5.2, tags: maven }
-    - { role: packer, packer_version: 1.2.0, tags: packer }
-    - { role: consul, consul_version: 1.0.6, tags: consul }
-    - { role: hub, hub_version: 2.4.0, tags: hub }
-    - { role: terraform, terraform_version: 0.11.4, tags: terraform }
+    - { role: maven, maven_version: 3.6.2, tags: maven }
+    - { role: packer, packer_version: 1.4.3, tags: packer }
+    - { role: consul, consul_version: 1.6.0, tags: consul }
+    - { role: hub, hub_version: 2.12.3, tags: hub }
+    - { role: terraform, terraform_version: 0.12.8, tags: terraform }
     - { role: golang, tags: golang }
     - { role: misc, tags: misc }
     - { role: ides, tags: ides }

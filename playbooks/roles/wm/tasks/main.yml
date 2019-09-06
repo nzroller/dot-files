@@ -1,0 +1,5 @@
+---
+- name: Enable experimental HiDPI scaling features
+  shell:
+    gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
+  become: no

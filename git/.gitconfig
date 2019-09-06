@@ -1,4 +1,5 @@
 [alias]
+  pf                 = push --force-with-lease
   st                 = status
   ci                 = commit
   uncommit           = reset --soft HEAD^
@@ -36,5 +37,6 @@
   prune = true
 [commit]
   gpgsign = true
+  template = ~/.gitmessage
 [pull]
   rebase = true

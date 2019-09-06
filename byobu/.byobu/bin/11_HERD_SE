@@ -1,2 +1,0 @@
-#!/bin/sh
-echo "SE:$(curl -s http://herd.izettle.com/currentstatus | jq '.payment.SE.successRate | tostring | .[:3] | tonumber')"

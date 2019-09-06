@@ -31,6 +31,8 @@ packages:
 - gconf2
 - gconf-editor
 - gimp
+- colordiff
+- wdiff
 
 remove_packages:
 - compton

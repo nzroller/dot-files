@@ -6,3 +6,4 @@ unbind-key -n C-z
 set -g prefix ^Z
 set -g prefix2 ^Z
 bind z send-prefix
+bind -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "xsel -i --clipboard"

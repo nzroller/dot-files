@@ -23,3 +23,6 @@ PATH=/home/tim/.local/share/umake/bin:$PATH
 
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
+
+#THIS MUST BE AT THE END OF THE FILE FOR JENV TO WORK!!!
+[[ -s "/home/tim/.jenv/bin/jenv-init.sh" ]] && source "/home/tim/.jenv/bin/jenv-init.sh" && source "/home/tim/.jenv/commands/completion.sh"

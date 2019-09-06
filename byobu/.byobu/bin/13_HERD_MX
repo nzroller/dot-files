@@ -1,2 +1,0 @@
-#!/bin/sh
-echo "MX:$(curl -s http://herd.izettle.com/currentstatus | jq '.payment.MX.successRate | tostring | .[:3] | tonumber')"

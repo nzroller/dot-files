@@ -209,6 +209,20 @@ function findrecursive() {
 [ -r $HOME/.byobu/prompt ] && . $HOME/.byobu/prompt   #byobu-prompt#
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
-source <(kubectl completion bash)
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Remap CTRL-T to CTRL-X CTRL-T
+bind "$(bind -s | grep __fzf_select | sed 's/\\C-t/\\C-x\\C-t/')"
+bind '"\C-t": transpose-chars'
+
+export PATH="$HOME/.adr-tools/src:$PATH"
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+# for now
+export QT_FONT_DPI=268
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+function mdless { /usr/bin/pandoc -t plain "${1:-README.md}" | /usr/bin/less; }

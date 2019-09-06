@@ -36,3 +36,20 @@ postman
 editorconfig
 git clone https://github.com/gcuisinier/jenv.git ~/.jenv
 sudo snap install kubectl --classic
+
+sudo snap install mailspring
+sudo snap install keepassxc
+# tinkey
+# Bazel
+sudo apt-get install pkg-config zip g++ zlib1g-dev unzip python
+
+
+https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
+tlp
+
+lynx
+gource
+
+texlive-latex-base
+
+sudo apt-get install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils

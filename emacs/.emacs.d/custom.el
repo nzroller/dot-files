@@ -12,7 +12,7 @@
  '(cua-read-only-cursor-color "#859900")
  '(custom-safe-themes
    (quote
-    ("3dafeadb813a33031848dfebfa0928e37e7a3c18efefa10f3e9f48d1993598d3" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "3b819bba57a676edf6e4881bd38c777f96d1aa3b3b5bc21d8266fa5b0d0f1ebf" "025354235e98db5e7fd9c1a74622ff53ad31b7bde537d290ff68d85665213d85" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "e16a771a13a202ee6e276d06098bc77f008b73bbac4d526f160faa2d76c1dd0e" "146d24de1bb61ddfa64062c29b5ff57065552a7c4019bee5d869e938782dfc2a" "3a727bdc09a7a141e58925258b6e873c65ccf393b2240c51553098ca93957723" "b1471d88b39cad028bd621ae7ae1e8e3e3fca2c973f0dfe3fd6658c194a542ff" default)))
+    ("190a9882bef28d7e944aa610aa68fe1ee34ecea6127239178c7ac848754992df" "3dafeadb813a33031848dfebfa0928e37e7a3c18efefa10f3e9f48d1993598d3" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "3b819bba57a676edf6e4881bd38c777f96d1aa3b3b5bc21d8266fa5b0d0f1ebf" "025354235e98db5e7fd9c1a74622ff53ad31b7bde537d290ff68d85665213d85" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "e16a771a13a202ee6e276d06098bc77f008b73bbac4d526f160faa2d76c1dd0e" "146d24de1bb61ddfa64062c29b5ff57065552a7c4019bee5d869e938782dfc2a" "3a727bdc09a7a141e58925258b6e873c65ccf393b2240c51553098ca93957723" "b1471d88b39cad028bd621ae7ae1e8e3e3fca2c973f0dfe3fd6658c194a542ff" default)))
  '(fci-rule-color "#383838")
  '(flycheck-flake8-maximum-line-length 100)
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
@@ -28,13 +28,12 @@
      ("#93115C" . 85)
      ("#073642" . 100))))
  '(indent-tabs-mode nil)
- '(jit-lock-defer-time 0.005)
  '(json-reformat:indent-width 2)
  '(magit-use-overlays nil)
  '(markdown-command "mdpress")
  '(markdown-command-needs-filename t)
  '(nxml-child-indent 4)
- '(org-agenda-files (quote ("~/Dropbox/Private/GTD")))
+ '(org-agenda-files (quote ("~/GTD")))
  '(org-agenda-skip-scheduled-if-done t)
  '(org-capture-templates
    (quote
@@ -48,7 +47,7 @@
    %i
 "))))
  '(org-custom-properties (quote ("CREATED")))
- '(org-default-notes-file "~/Dropbox/Private/GTD/Inbox.org")
+ '(org-default-notes-file "~/GTD/Inbox.org")
  '(org-log-done (quote time))
  '(org-refile-targets (quote ((org-agenda-files :maxlevel . 1))))
  '(org-todo-keywords
@@ -56,7 +55,7 @@
     ((sequence "NEXT" "WAITING" "|" "DONE" "DELEGATED" "DISCARDED"))))
  '(package-selected-packages
    (quote
-    (fzf csv-mode magit-find-file lsp-mode zenburn-theme yaml-mode web-mode undo-tree terraform-mode toml-mode smooth-scrolling smex smart-mode-line shm scala-mode rust-mode rainbow-delimiters puppet-mode projectile processing-mode popwin paredit org-plus-contrib markdown-mode magit json-mode js2-mode ir-black-theme imenu-anywhere idomenu ido-vertical-mode hindent highlight-symbol hi2 groovy-mode go-snippets go-eldoc go-direx git-timemachine gist flyspell-lazy flycheck-rust flycheck-haskell flycheck-color-mode-line flycheck flatland-theme flx-ido fic-mode expand-region exec-path-from-shell enh-ruby-mode editorconfig dockerfile-mode company-inf-ruby company-ghc company-go company better-defaults autopair auto-package-update anzu ansible ag ace-jump-mode)))
+    (markdown-mode+ smooth-scroll kotlin-mode solarized-theme helm fzf csv-mode magit-find-file lsp-mode zenburn-theme yaml-mode web-mode undo-tree terraform-mode toml-mode smooth-scrolling smex smart-mode-line shm scala-mode rust-mode rainbow-delimiters puppet-mode projectile processing-mode popwin paredit org-plus-contrib markdown-mode magit json-mode js2-mode ir-black-theme imenu-anywhere idomenu ido-vertical-mode hindent highlight-symbol hi2 groovy-mode go-snippets go-eldoc go-direx git-timemachine gist flyspell-lazy flycheck-rust flycheck-haskell flycheck-color-mode-line flycheck flatland-theme flx-ido fic-mode expand-region exec-path-from-shell enh-ruby-mode editorconfig dockerfile-mode company-inf-ruby company-ghc company-go company better-defaults autopair auto-package-update anzu ansible ag ace-jump-mode)))
  '(safe-local-variable-values (quote ((whitespace-line-column . 60))))
  '(savehist-mode t)
  '(sh-basic-offset 2)
