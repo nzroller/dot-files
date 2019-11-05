@@ -33,6 +33,7 @@
  '(markdown-command "mdpress")
  '(markdown-command-needs-filename t)
  '(nxml-child-indent 4)
+ '(org-agenda-file-regexp "\\`[^. ].*\\.org\\'")
  '(org-agenda-files (quote ("~/GTD")))
  '(org-agenda-skip-scheduled-if-done t)
  '(org-capture-templates

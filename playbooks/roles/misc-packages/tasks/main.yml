@@ -3,16 +3,14 @@
   with_items: "{{ apt_repos }}"
 
 - name: apt packages
-  apt: pkg={{ item }}
-  with_items: "{{ packages }}"
+  apt: pkg="{{ packages }}"
 
 - name: apt packages remove
-  apt: pkg={{ item }} state=absent
-  with_items: "{{ remove_packages }}"
+  apt: pkg="{{ remove_packages }}" state=absent
 
 - name: pip packages
-  pip: name={{ item }}
-  with_items:
-  - awscli
-  - google-api-python-client
-  - yamllint
+  pip:
+    name:
+    - awscli
+    - google-api-python-client
+    - yamllint

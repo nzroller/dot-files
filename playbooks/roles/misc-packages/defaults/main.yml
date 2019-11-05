@@ -7,7 +7,6 @@ packages:
 - byobu
 - emacs-nox
 - stow
-- dconf-cli
 - grc
 - python-pip
 - xsel
@@ -37,7 +36,3 @@ packages:
 remove_packages:
 - compton
 - xfce4
-- dconf-cli
-- thunderbird
-- thunderbird-locale-en-us
-- thunderbird-locale-en

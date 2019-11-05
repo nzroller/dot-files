@@ -25,6 +25,7 @@ silversearcher-ag
 # pgcli + deps
 sudo apt-get install python-dev libpq-dev libevent-dev
 # sudo pip install pgcli
+# sudo pip install pip3
 # edit /etc/gdm3/custom.conf display wayland
 
 # postman
@@ -53,3 +54,9 @@ gource
 texlive-latex-base
 
 sudo apt-get install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
+
+
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -

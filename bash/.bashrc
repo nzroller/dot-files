@@ -191,7 +191,7 @@ function gw() {
   fi
 }
 
-complete -C '/usr/local/bin/aws_completer' aws
+complete -C '/home/tim/.local/bin/aws_completer' aws
 
 export PATH="$PATH:$HOME/.local/bin" # Add .local/bin to PATH for powerline
 
@@ -219,10 +219,14 @@ bind '"\C-t": transpose-chars'
 export PATH="$HOME/.adr-tools/src:$PATH"
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
 # for now
-export QT_FONT_DPI=268
+export QT_FONT_DPI=168
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 function mdless { /usr/bin/pandoc -t plain "${1:-README.md}" | /usr/bin/less; }
+
+dependabot-prs () {
+  hub api repos/izettle/${PWD##*/}/pulls | jq ".[] | select(.user.id == 27856297 and .user.login == \"dependabot-preview[bot]\") | .number"
+}
